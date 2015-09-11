@@ -14,7 +14,7 @@ To enable this grant add the following to the `config/oauth2.php` configuration 
         'class' => '\Larapack\TwitterGrant',
         'callback' => '\App\PasswordVerifier@verifyTwitter',
         'access_token_ttl' => 3600,
-        'gather_twitter_user' => true, // wheter or not we should get the $twitterUser variable to the callback
+        'gather_user' => true, // wheter or not we should get the $twitterUser variable to the callback
         'client_id' => Config::get('services.twitter.client_id'), // only needed if we should gather the twitter user
         'client_secret' => Config::get('services.twitter.client_secret'), // only needed if we should gather the twitter user
     ]
@@ -27,7 +27,7 @@ use App\User;
 
 class PasswordGrantVerifier
 {
-  // $twitterUser will be null if `get_twitter_user` is not set to true in configuration.
+  // $twitterUser will be null if `get_user` is not set to true in configuration.
   public function verifyTwitter($twitterToken, $twitterSecret, $twitterUser)
   {
       $credentials = [
