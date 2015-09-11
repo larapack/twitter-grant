@@ -27,7 +27,7 @@ use App\User;
 
 class PasswordGrantVerifier
 {
-  // $twitterUser will be null if `get_user` is not set to true in configuration.
+  // $twitterUser will be null if `gather_user` is not set to true in configuration.
   public function verifyTwitter($twitterToken, $twitterSecret, $twitterUser)
   {
       $credentials = [
